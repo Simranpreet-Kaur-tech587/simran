@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luxury Hotel</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active {
+      color: #e67e22;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 15px 50px;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    /* Home section */
+    .rooms-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 20px;
+    }
+
+    .room-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .room-card:hover {
+      transform: scale(1.05);
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .room-card h3 {
+      margin: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Facilities section */
+    .facilities-list {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .facilities-list ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .facilities-list li {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .facilities-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: 700;
+    }
+
+    /* Contact section */
+    .contact-info {
+      background: white;
+      border-radius: 8px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      user-select: text;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #999;
+      background: #ececec;
+      user-select: none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        display: inline-block;
+      }
+      .rooms-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Luxury Hotel</h1>
+  <nav>
+    <a href="#" id="nav-home" class="active">Home</a>
+    <a href="#" id="nav-facilities">Facilities</a>
+    <a href="#" id="nav-contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="active" aria-label="Home page">
+    <h2>Our Luxury Rooms</h2>
+    <div class="rooms-gallery">
+      <div class="room-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80" alt="Luxury King Room" />
+        <h3>King Deluxe Room</h3>
+      </div>
+       <div class="room-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Modern Suite" />
+        <h3>Modern Suite</h3>
+      </div>
+      <div class="room-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="Luxury Double Room" />
+        <h3>Double Deluxe Room</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="facilities" aria-label="Facilities page">
+    <h2>Our Facilities</h2>
+    <div class="facilities-list">
+      <ul>
+        <li>Fine Dining Restaurant with gourmet food</li>
+        <li>24/7 Room Service</li>
+        <li>Swimming Pool & Spa</li>
+        <li>Fitness Center</li>
+        <li>Free Wi-Fi throughout property</li>
+        <li>Conference & Banquet Halls</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact page">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+      <p><strong>Address:</strong> 123 Luxury St, Paradise City, Dreamland</p>
+      <p><strong>Email:</strong> contact@luxuryhotel.com</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Luxury Hotel. All rights reserved.
+</footer>
+
+<script>
+  // Navigation logic
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main section');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      let targetId = link.id.replace('nav-', '');
+      if (!targetId) return;
+
+      // Update active link
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      // Show target section and hide others
+      sections.forEach(sec => {
+        if (sec.id === targetId) {
+          sec.classList.add('active');
+          sec.focus();
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+
